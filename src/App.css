@@ -1,0 +1,800 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+.greenText{
+  color: #18D26E;
+}
+.whiteBorder {
+  border: 1px solid white;
+}
+.blackBorder {
+  border: 1px solid black;
+}
+
+html, body, #root, .App {
+  height: 100%;
+}
+.App {
+  text-align: center;
+  color: white;
+  background-color: black;
+  background-image: url("./backgroundImage.png");
+  background-size: 90vh;
+  background-repeat:no-repeat;
+  background-position: bottom;
+  color-scheme: gray;
+  font-family: "Poppins";
+  font-weight: 200;
+  letter-spacing: 1px;
+
+  overflow: hidden;
+
+  /* stop copying */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+/* Body Div */
+.bodyDiv{
+  height: 90%;
+  width: 100%;
+}
+/* end body div */
+.swipeableDiv{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Navigation bar start */
+.navbar{
+  background-color: transparent;
+}
+.navbarFirstnameText{
+  font-family: "Raleway";
+  text-transform: uppercase;
+  padding: 0px 1px;
+  border-radius: 4px;
+  margin: 0;
+  letter-spacing: 3px;
+  color: #18D26E;
+}
+.navlink{
+  text-decoration: none;
+  padding: 2px 1vw;
+  font-size: medium;
+  color: white;
+  background-color: transparent;
+  border: none;
+  font-family: "Work Sans";
+  font-weight:400;
+}
+.navlink:focus, .navlink:hover{
+  color: white;
+}
+
+/* hide tab menu
+   show dropdown menu  */
+@media (orientation : portrait){
+
+  .navbarFirstnameFront{
+    display: none;
+  }
+  .tab-menu {
+    display: none;
+  }
+  .navbarFirstnameMiddle{
+    margin-left: 90px;
+  }
+  .collapsable ul{
+    border: white 1px solid;
+  }
+  .collapsable .navlink{
+    font-size: clamp(12px, 6vw, 25px);
+    font-weight: 300;
+  }
+}
+
+/* show tab menu
+   hide dropdown menu  */
+@media (orientation : landscape){
+  .collapsable{
+    display: none;
+  }
+  .navbarFirstnameMiddle{
+    display: none;
+  }
+}
+.socialIcons{
+  padding: 0;
+  margin-top: -7px;
+}
+.social-links .bi, .socialIcons .bi{
+  color: white;
+}
+.social-links .bi:hover, .socialIcons .bi:hover{
+  color: #18D26E;
+}
+.socialIcons a{
+  padding: 0px 0.5vw;
+}
+
+/* Underline animation */
+@media (orientation: landscape){
+.navlink{
+  position: relative;
+}
+.navlink::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  width: 0;
+  height: 3px;
+  background-color: #18D26E;
+  border-radius: 4px;
+  margin: 0 auto;
+  transition: all .5s;
+}
+.navlink:hover::after,
+.navlink:focus::after {
+  width: 70%;
+}
+}
+
+/* dropdown-menu-animation */
+@media (orientation: portrait){
+  .animate {
+    animation-duration: 0.7s;
+    -webkit-animation-duration: 0.7s;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+  }
+
+  @keyframes slideIn {
+  0% {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+
+  0% {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+  }
+
+  @-webkit-keyframes slideIn {
+  0% {
+    -webkit-transform: transform;
+    -webkit-opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    -webkit-opacity: 1;
+  }
+
+  0% {
+    -webkit-transform: translateY(-1rem);
+    -webkit-opacity: 0;
+  }
+  }
+
+  .slideIn {
+  -webkit-animation-name: slideIn;
+  animation-name: slideIn;
+  }
+}
+/* navbar end */
+
+/* home tab start*/
+@media (orientation: portrait){
+  .homeTabDiv{
+    margin-top : 30vh;
+  }
+  .fullNameh1Tag, .homeTabShortText{
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+  }
+}
+@media (orientation: landscape){
+  .homeTabDiv{
+    display: flex;
+    justify-content: left;
+    margin: 20vh auto auto 65vw;
+  }
+  .homeTabContainer{
+    width: 100%;
+    justify-content: left;
+    align-items: left;
+  }
+  .fullNameh1Tag, .homeTabShortText, .homeTabAboutButton{
+    display: flex;
+  }
+}
+.fullNameh1Tag{
+  font-family: "Poppins";
+  font-weight: 800;
+}
+.homeTabShortText{
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-family: "Raleway";
+}
+.homeTabAboutButton{
+  margin-top: 20px;
+  background-color: #18D26E;
+  border-radius: 999px;
+  border: none;
+  font-size: 15px;
+  padding: 10px 30px;
+  font-weight: 700;
+}
+
+.creditsDiv {
+  font-size: 13px;
+  font-weight: 400;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.creditsDiv a {
+  text-decoration: none;
+  color: #18D26E;
+}
+.creditsDiv a:hover,
+.creditsDiv a:focus,
+.creditsDiv a::after  {
+  color: #18D26E;
+  text-decoration: none;
+}
+/* home tab end */
+
+/* about tab start */
+
+
+.aboutTabDiv{
+  margin: auto;
+  padding: 10px;
+  backdrop-filter: blur(10px);
+  background-color: #00000070;
+  /* background-color: rgba(255,255,255,0.1); */
+  border-radius: 10px;
+  z-index: 2;
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+  height: 100%;
+  overflow-y: scroll;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.aboutTabDiv::-webkit-scrollbar {
+  display: none;
+}
+.aboutTabProfileImage{
+  max-width: 250px;
+  height: auto;
+}
+
+.interests{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.interestIcon{
+ width: 50px;
+ height: auto;
+}
+.aboutTabpersonalData{
+  display: grid;
+}
+@media (orientation: portrait){
+  .aboutTabpersonalData div{
+    margin: 0 auto 1px 0;
+  }
+  .interestName{
+    display: none;
+  }
+  .interest{
+    background-color: #00000071;
+    border-radius: 15px;
+    padding: 5px;
+  }
+  .interest{
+    width: auto;
+    display: flex;
+    width: fit-content;
+  }
+  .interest:hover:first-child{
+    margin-right: 10px;
+  }
+  .interest:hover:nth-child(2), .interest:hover:nth-child(3){
+    margin: 0 10px;
+  }
+  .interest:hover:last-child{
+    margin-left: 10px;
+  }
+  .interest:hover{
+    animation: interestScale 2s forwards;
+  }
+  .interest:hover .interestName{
+    display: contents;
+  }
+  
+  .aboutTabDiv {
+    width: 90%;
+    }
+  .skillsDiv{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@keyframes interestScale{
+  0%{
+    width: 60px;
+  }
+  100%{
+    width: 100%;
+  }
+}
+
+@media(orientation: landscape){
+  @media (min-width: 700px){
+      .skillsDiv{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+  }
+  @media (min-width: 900px){
+    .skillsDiv{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  @media (min-width: 1100px){
+    .skillsDiv{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
+  .aboutTabpersonalData{
+    grid-template-columns: auto auto;
+  }
+  .aboutTabpersonalData div{
+    margin-bottom: 10px ;
+  }
+  .aboutTabDiv {
+    width: clamp(700px, 80%, 1100px);
+  }
+  .aboutTabInfoDiv{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+  }
+  .aboutTabInfoDiv .rightDiv {
+    text-align: left;
+  }
+  .aboutTabHeading1, .aboutTabHeading2 {
+    display: flex;
+  }
+  .aboutTabHeading1 {
+    letter-spacing: 4px;
+  }
+  .aboutText {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+  }
+  .horizontalBar{
+    background-color: #18D26E;
+    width: 100px;
+    margin: auto 5px;
+    height: 2px;
+   }
+   .skillHeading{
+      display: flex;
+   }
+   .aboutInfoBottomPara{
+    display: flex;
+    text-align: left;
+   }
+   .interestName{
+     font-size: clamp(14px, 1.5vw, 20px);
+     background-color: #000000A0;
+     width: 13em;
+     padding: 40px 10px;
+     margin-top: -40px;
+     border-radius: 10px;
+     z-index: 1;
+   }
+   .interestIconSpan{
+    margin: 0 auto 0 auto;
+    background: linear-gradient(
+                                to top, 
+                                #00000000 0px, 
+                                #00000000 40px, 
+                                #000000A0 40px, 
+                                #000000A0 100%
+                                );
+    background-size: 50px;
+    padding: 20px;
+    border-radius: 50%;
+    z-index: 2;
+   }
+   .interest{
+    width: 24%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+   }
+}
+
+/* about tab end */
+
+/* pdf tab start */
+.resumeTab{
+  margin: auto;
+  padding: 15px 5px;
+  backdrop-filter: blur(10px);
+  background-color: #00000070;
+  /* background-color: rgba(255,255,255,0.1); */
+  border-radius: 20px;
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+}
+.resumeTab::-webkit-scrollbar {
+  display: none;
+}
+@media (orientation: portrait){
+  .resumeTab{
+    width: 100%;
+  }
+  .resumeTab .container {
+    display: grid;
+    grid-template-columns: auto;
+  }
+}
+@media (orientation: landscape){
+  .resumeTab{
+    width: clamp(600px, 70%, 900px);
+  }
+  .resumeTab .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5vw;
+  }
+  .eacheducationDiv, .eachexperienceDiv{
+    text-align: left;
+    padding: 10px 5px;
+  }
+}
+
+.downloadResumeDiv a:hover {
+  cursor: pointer;
+}
+.downloadResumeDiv .btn{
+  margin-top: 10px;
+  background-color: #18D26E;
+  color: white;
+  width: 100%;
+  opacity: 0.8;
+}
+.downloadResumeDiv .btn:hover{
+  background-color: #18D26E;
+  opacity: 1;
+}
+/* pdf tab end */
+
+/*--------------------------------------------------------------
+# Contacts Start
+--------------------------------------------------------------*/
+.contactsDiv{
+  background-color: #000000f0;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;  
+}
+
+.contactsDiv::-webkit-scrollbar {
+  display: none;
+}
+@media (orientation: landscape){
+  .contactsDiv{
+    width: clamp(600px, 70%, 900px);
+    display: flex;
+    align-items: center;
+  }
+}
+.contact .info-box {
+  color: #444444;
+  padding: 20px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.contact .info-box i.bx {
+  font-size: 24px;
+  color: #18d26e;
+  border-radius: 50%;
+  padding: 14px;
+  float: left;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.contact .info-box h3 {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+  margin: 10px 0 8px 68px;
+}
+
+.contact .info-box p {
+  padding: 0;
+  color: #fff;
+  line-height: 24px;
+  font-size: 14px;
+  margin: 0 0 0 68px;
+}
+
+.contact .info-box .social-links {
+  margin: 5px 0 0 68px;
+  display: flex;
+  justify-content: center;
+}
+
+.contact .info-box .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  color: #fff;
+  line-height: 1;
+  margin-right: 12px;
+  transition: 0.3s;
+}
+
+.contact .info-box .social-links a:hover {
+  color: #18d26e;
+}
+
+.contact .php-email-form {
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.contact .php-email-form .error-message {
+  display: none;
+  background: rgba(255, 255, 255, 0.08);
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .error-message br+br {
+  margin-top: 25px;
+}
+
+.contact .php-email-form .sent-message {
+  display: none;
+  background: rgba(255, 255, 255, 0.08);
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .loading {
+  display: none;
+  background: rgba(255, 255, 255, 0.08);
+  text-align: center;
+  padding: 15px;
+}
+
+.contact .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+
+.contact .php-email-form input,
+.contact .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 0;
+  transition: 0.3s;
+  color: #fff;
+}
+
+.contact .php-email-form input:focus,
+.contact .php-email-form textarea:focus {
+  background-color: rgba(255, 255, 255, 0.11);
+}
+
+.contact .php-email-form input::-moz-placeholder,
+.contact .php-email-form textarea::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+}
+
+.contact .php-email-form input::placeholder,
+.contact .php-email-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+}
+
+.contact .php-email-form input {
+  padding: 10px 15px;
+}
+
+.contact .php-email-form textarea {
+  padding: 12px 15px;
+}
+
+.contact .php-email-form button[type=submit] {
+  background: #18d26e;
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.contact .php-email-form button[type=submit]:hover {
+  background: #15bb62;
+}
+
+@-webkit-keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Contacts end
+--------------------------------------------------------------*/
+
+/* Certificates Tab start */
+.certificatesTabDiv{
+  background-color: #00000070;
+  overflow-y: scroll;
+  height: 90%;
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+  display: grid;
+  align-items: center;
+  grid-gap: 10px;
+  position: relative;
+}
+.certificatesTabDiv::-webkit-scrollbar{
+  display: none;
+}
+.certificateImg{
+  aspect-ratio: 3/2;
+  border-radius: 10px;
+}
+@media (orientation: portrait){
+  .certificatesTabDiv{
+    width: 100%;
+  }
+  .eachCertificateDiv a{
+    text-decoration: none;
+  }
+  .certificateName{
+    font-size: 20px;
+    font-weight: 500;
+    color: #18d26e;
+  }
+}
+@media (orientation: landscape){
+  .certificatesTabHeading1{
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  @media (max-width: 1100px){
+    .certificatesTabDiv{
+      width: clamp(700px, 80%, 1100px);
+      grid-template-columns: auto auto;
+      padding-top: 30px;
+    }
+  }
+  @media (min-width: 1100px){
+    .certificatesTabDiv{
+      width: clamp(700px, 80%, 1100px);
+      grid-template-columns: auto auto auto;
+      padding-top: 30px;
+    }
+  }
+  .eachCertificateDiv{
+    position: relative;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .eachCertificateDiv a:hover > .certificateName{
+    animation: hideCertificateName 0.7s linear forwards;
+  }
+
+  @keyframes hideCertificateName{
+    0%{
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+    }
+  }
+  .certificateName{
+    color: black;
+    font-family: "Work Sans";
+    font-weight: bold;
+    background-color: #18d26e;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    border-radius: 15px 100% 300% 15px;
+    height: 100%;
+    width: 70%;
+    text-align: left;
+    padding-right: 10%;
+    display: flex;
+    transform: translate(0, -50%);
+  }
+}
+/* Certificate Tab end */
+
+/* Portfoliio Tab start */
+
+.portfolioTabDiv{
+  width: clamp(700px, 80%, 1100px);
+}
+.portfoliosContainer{
+  display: flex;
+}
+.eachPortfolioDiv{
+  width: 300px;
+  height: auto;
+}
+.eachPortfolioDiv:not(:nth-child(1)){
+  margin-left: -10%;
+}
+.portfoliosContainer video, img {
+  width: 100%;
+  height: auto;
+}
+/* Portfoliio Tab end */
+
+/* trial */

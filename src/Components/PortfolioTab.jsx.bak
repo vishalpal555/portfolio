@@ -1,0 +1,72 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSwipeable } from 'react-swipeable';
+
+export default function PortfolioTab(props) {
+  const portfolios = [
+    {"name" : "iAssistant",
+      "source" : "https://vishalpalprofile.s3.ap-south-1.amazonaws.com/portfolio/carDetection.mp4",
+      "type" : "video",
+      "info" : "blah blah blah"
+
+    },
+    { "name" : "Indijobs",
+      "source" : "https://vishalpalprofile.s3.ap-south-1.amazonaws.com/portfolio/indijobsScreenShot.png",
+      "type" : "image",
+      "info" : "blah blah blah"
+
+    },
+    { "name" : "iAssistant",
+      "source" : "https://vishalpalprofile.s3.ap-south-1.amazonaws.com/portfolio/CurrencyDetection.mp4",
+      "type" : "video",
+      "info" : "blah blah blah"
+    },
+    { "name" : "iAssistant",
+      "source" : "https://vishalpalprofile.s3.ap-south-1.amazonaws.com/portfolio/100_detection.jpg",
+      "type" : "image",
+      "info" : "blah blah blah"
+    },
+    { "name" : "iAssistant",
+      "source" : "https://vishalpalprofile.s3.ap-south-1.amazonaws.com/portfolio/500_detection.jpg",
+      "type" : "image",
+      "info" : "blah blah blah"
+    }
+  ]
+  const navigate = useNavigate();
+  const goto = (link) => {
+    navigate(link)
+  }
+  const swipeHandler = useSwipeable({
+    onSwipedLeft : () => {goto(props.ResumeTabLink)},
+    onSwipedRight : () => {goto(props.AboutTabLink)}
+  })
+  return (
+    <div {...swipeHandler} className='swipeableDiv'>
+    <div className="portfolioTabDiv">
+      <div className='portfoliosContainer'>
+        {
+          portfolios.map((portfolio, index)  => {
+                  if(portfolio.type.toLowerCase() === "video"){
+                      return(<div key={index} className='eachPortfolioDiv'>
+                        <a target={"_blank"} rel="noreferrer" href={portfolio.source}>
+                          <video muted loop autoPlay="autoplay" >
+                          <source src={portfolio.source} type="video/mp4" />
+                        </video>
+                        </a>
+                      </div>)
+                  }
+                  else{
+                    return(<div key={index} className='eachPortfolioDiv'>
+                        <a target={"_blank"} rel="noreferrer" href={portfolio.source}>
+                          <img src={portfolio.source} alt={portfolio.name +"/" +portfolio.type} />
+                        </a>
+                      </div>)
+                  }
+          })
+          
+        }
+    </div>
+    </div>
+    </div>
+  )
+}
